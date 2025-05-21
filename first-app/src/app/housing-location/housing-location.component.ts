@@ -1,11 +1,11 @@
 import { Component, Input} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HousingLocation } from '../housinglocation';
-import { RouterLink} from '@angular/router';
+import { RouterLink, RouterOutlet} from '@angular/router';
 
 @Component({
   selector: 'app-housing-location',
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule, RouterLink, RouterOutlet],
   standalone: true,
   template: `
     <section class="listing">
@@ -18,6 +18,7 @@ import { RouterLink} from '@angular/router';
       <h2 class="listing-heading">{{ housingLocation.name }}</h2>
       <p class="listing-location">{{ housingLocation.city }}, {{ housingLocation.state }}</p>
       <a [routerLink]="['/details', housingLocation.id]">Saiba mais</a>
+      <router-outlet></router-outlet>
     </section>
   `,
   styleUrls: ['./housing-location.component.css'],
